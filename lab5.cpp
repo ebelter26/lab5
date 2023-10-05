@@ -3,11 +3,11 @@
 #include <string>
 
 using namespace std;
-
+//printing text prompting users to input text
 void printMenu() {
 	cout << "Input text to cypher: ";
 }
-
+//cyphering function that translates text using cypher key and prints encoded message
 void cypher () {
 	vector<char> cypher({ 'V','F','X','B','L','I','T','Z','J','R','P','H','D','K','N','O','W','S','G','U','Y','Q','M','A','C','E' });
 	string text;
