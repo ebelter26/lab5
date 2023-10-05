@@ -1,20 +1,39 @@
-// lab5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <vector>
+#include <string>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+void printMenu() {
+	cout << "Input text to cypher: ";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void cypher () {
+	vector<char> cypher({ 'V','F','X','B','L','I','T','Z','J','R','P','H','D','K','N','O','W','S','G','U','Y','Q','M','A','C','E' });
+	string text;
+	int current;
+	char upper;
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	getline(cin, text);
+	cout << "Encoded Message: ";
+	
+	for (int i = 0; i <= text.length(); i++) {
+		if (text[i] >= 65 && text[i] <= 90) {
+			current = text[i] - 65;
+			cout << cypher[current];
+		}
+		else if (text[i] >= 97 && text[i] <= 122) {
+			text[i] = text[i] - 32;
+			upper = cypher[text[i] - 65] + 32;
+			cout << upper;
+		}
+		else {
+			cout << text[i];
+		}
+	}
+}
+
+int main() {
+	printMenu();
+	cypher();
+}
